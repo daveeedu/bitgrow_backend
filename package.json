@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "./index.js",
+  "engines": {
+    "node": "^16.20.2"
+  },
   "scripts": {
     "start": "node ./index.js",
     "build": "rm -rf node_modules && rm -rf package-lock.json && npm i && npm install --save dotenv",

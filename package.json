@@ -2,9 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./index.js",
     "build": "rm -rf node_modules && rm -rf package-lock.json && npm i && npm install --save dotenv",
     "dev": "nodemon index.js",
     "test": "mocha -w --recursive test",

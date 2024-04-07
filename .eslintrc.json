@@ -1,0 +1,36 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "no-console": "error",
+        "no-undef": "error",
+        "no-unused-vars": "warn",
+        "no-unreachable": 1,
+        "no-empty": 1,
+        "no-empty-function": 1,
+        "no-empty-pattern": "off",
+        "no-unused-expressions": "off",
+        "no-unused-labels": "off",
+        "no-unneeded-ternary": "off",
+        "no-useless-concat": "off",
+        "no-useless-constructor": 1,
+        "no-useless-return": "off",
+        "no-useless-call": "off",
+        "no-useless-catch": "off"
+    },
+    "globals": {
+        "__dirname": "readonly",
+        "logger": "readonly",
+        "H": "readonly",
+        "io": "readonly",
+        "process": "readonly",
+        "Buffer": "readonly",
+    }
+}

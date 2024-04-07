@@ -1,0 +1,9 @@
+node_modules
+.env
+X509-cert-8587273943679698911.pem
+tables.txt
+*.mongodb
+.DS_Store
+.vscode
+sample.js
+package-lock.json

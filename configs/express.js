@@ -5,8 +5,13 @@
 
 const logger = require("../logger");
 const express = require("express");
+logger.info({ expressTifo: 'Express object started' });
 const app = express();
+logger.info({ expressTifo1: 'Express object started' });
+global.H = require("../utils/helper");
+logger.info({ msgg: 'Reached Helper' })
 const fileupload = require("express-fileupload");
+logger.info({ fileupload })
 const fs = require("fs");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -14,13 +19,14 @@ const PlatformService = require("../services/platform.service");
 logger.info({ PlatformService })
 const path = require("path");
 const config = require("./config");
-const route = require(path.resolve("routes", config.version));
-logger.info({ stage: 'routes', route });
+logger.info({ config })
 const database = require("./database");
-logger.info({ stage: 'db', hello: 'Yes here', database })
+logger.info({ database })
+const route = require(path.resolve("routes", config.version));
+logger.info({ route });
 const { createStream } = require("rotating-file-stream");
 const ApiResponse = require("../utils/http.response");
-logger.info({ stage: 'ApiResponse', ApiResponse })
+logger.info({ ApiResponse })
 const {
   HTTP_OK,
   HTTP_INTERNAL_SERVER_ERROR,
@@ -31,8 +37,6 @@ const {
   INTERNAL_SERVER_ERROR,
   ROUTE_NOT_FOUND,
 } = require("../utils/http.response.message");
-global.H = require("../utils/helper");
-logger.info({ msgg: 'Reached Helper' })
 
 logger.debug("Overriding 'Express' logger");
 logger.info(`Server running in ${config.env.toUpperCase()} environment`);

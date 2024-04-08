@@ -4,9 +4,6 @@
 "use strict";
 
 const logger = require("../logger");
-logger.info({ msg: 'First contact' });
-global.H = require("../utils/helper");
-logger.info({ msgg: 'Reached Helper' })
 const express = require("express");
 logger.info({ expressTifo: 'Express object started' });
 const app = express();
@@ -38,6 +35,8 @@ const {
   INTERNAL_SERVER_ERROR,
   ROUTE_NOT_FOUND,
 } = require("../utils/http.response.message");
+global.H = require("../utils/helper");
+logger.info({ msgg: 'Reached Helper' })
 
 logger.debug("Overriding 'Express' logger");
 logger.info(`Server running in ${config.env.toUpperCase()} environment`);

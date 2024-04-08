@@ -4,7 +4,7 @@
 "use strict";
 
 const logger = require("../logger");
-logger.log({ expressJS: 'Started' })
+logger.info({ expressJS: 'Started' })
 const { HTTP_NOT_FOUND } = require("../utils/http.response.code");
 global.H = require("../utils/helper");
 const express = require("express"),

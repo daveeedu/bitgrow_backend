@@ -9,10 +9,12 @@ const config = require('./configs/config');
 const path = require('path');
 
 global.logger = require('./logger');
+console.log({ msg: 'First' })
+const logger = global.logger;
+console.log({ logger: 'Was reached', logger })
 const app = require('./configs/express');
 
 console.log({ msg2s: "Mine is ready", app });
-const logger = global.logger;
 
 console.log({ msg23: "Mine is ready", logger, global });
 logger.info('Logger is ready');

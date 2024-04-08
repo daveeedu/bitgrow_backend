@@ -27,8 +27,7 @@ const { HTTP_OK, HTTP_INTERNAL_SERVER_ERROR } = require(path.resolve(
     INTERNAL_SERVER_ERROR,
     ROUTE_NOT_FOUND,
   } = require(path.resolve("../utils/http.response.message"));
-
-console.log({ expressTifo1: app });
+  console.log({ expressTifo1: app });
 
 logger.debug("Overriding 'Express' logger");
 logger.info(`Server running in ${config.env.toUpperCase()} environment`);

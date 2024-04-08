@@ -5,11 +5,8 @@
 
 const logger = require("../logger");
 const express = require("express");
-logger.info({ expressTifo: 'Express object started' });
 const app = express();
-logger.info({ expressTifo1: 'Express object started' });
 const fileupload = require("express-fileupload");
-logger.info({ fileupload })
 const fs = require("fs");
 const cors = require("cors");
 const morgan = require("morgan");

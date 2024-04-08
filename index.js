@@ -2,6 +2,9 @@
 // jshint esversion:8
 'use strict';
 
+
+console.log({ msg: "Mine is ready" });
+
 const { Server } = require('socket.io');
 const { createServer } = require('http');
 const fs = require('fs');

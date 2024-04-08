@@ -4,7 +4,7 @@
   "description": "",
   "main": "./index.js",
   "scripts": {
-    "start": "node ./index.js",
+    "start": "ls -la && node ./index.js",
     "build": "rm -rf node_modules && rm -rf package-lock.json && npm i",
     "dev": "nodemon index.js",
     "test": "mocha -w --recursive test",

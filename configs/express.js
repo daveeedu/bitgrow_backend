@@ -5,9 +5,10 @@
 
 const logger = require("../logger");
 global.H = require("../utils/helper");
+console.log({ msgg: 'Reached Helper' })
 const express = require("express");
 const app = express();
-console.log({ expressTifo1: app });
+console.log({ expressTifo1: 'Express object started' });
 const fileupload = require("express-fileupload");
 console.log({ fileupload })
 const fs = require("fs");

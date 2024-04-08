@@ -4,9 +4,11 @@
 "use strict";
 
 const logger = require("../logger");
+logger.info({ msg: 'First contact' });
 global.H = require("../utils/helper");
 logger.info({ msgg: 'Reached Helper' })
 const express = require("express");
+logger.info({ expressTifo: 'Express object started' });
 const app = express();
 logger.info({ expressTifo1: 'Express object started' });
 const fileupload = require("express-fileupload");

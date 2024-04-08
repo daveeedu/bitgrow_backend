@@ -4,30 +4,37 @@
 "use strict";
 
 const logger = require("../logger");
-const { HTTP_NOT_FOUND } = require("../utils/http.response.code");
+// const { HTTP_NOT_FOUND } = require("../utils/http.response.code");
 global.H = require("../utils/helper");
+logger.info({ msg1: 'Test' })
 const express = require("express");
 const fileupload = require("express-fileupload");
+logger.info({ msg1: 'Test' })
 const fs = require("fs");
 const cors = require("cors");
 const morgan = require("morgan");
+logger.info({ msg2: 'Test' })
 const PlatformService = require("../services/platform.service");
+logger.info({ msg3: 'Test' })
 const app = express();
 const path = require("path");
+logger.info({ msg4: 'Test' })
 const config = require("./config");
 const database = require("./database");
 const route = require(path.resolve("routes", config.version));
 const { createStream } = require("rotating-file-stream");
 const ApiResponse = require(path.resolve("../utils/http.response"));
-const { HTTP_OK, HTTP_INTERNAL_SERVER_ERROR } = require(path.resolve(
-    "../utils/http.response.code"
-  )),
+const {
+    HTTP_OK,
+    HTTP_NOT_FOUND,
+    HTTP_INTERNAL_SERVER_ERROR,
+  } = require("../utils/http.response.code"),
   {
     WELCOME_MESSAGE,
     INTERNAL_SERVER_ERROR,
     ROUTE_NOT_FOUND,
   } = require(path.resolve("../utils/http.response.message"));
-  console.log({ expressTifo1: app });
+console.log({ expressTifo1: app });
 
 logger.debug("Overriding 'Express' logger");
 logger.info(`Server running in ${config.env.toUpperCase()} environment`);

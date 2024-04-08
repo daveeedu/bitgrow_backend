@@ -17,7 +17,7 @@ const PlatformService = require("../services/platform.service");
 logger.info({ PlatformService })
 const path = require("path");
 const config = require("./config");
-logger.info({ config })
+logger.info({ config });
 const database = require("./database");
 logger.info({ database })
 const route = require(path.resolve("routes", config.version));

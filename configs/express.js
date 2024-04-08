@@ -4,32 +4,31 @@
 "use strict";
 
 const logger = require("../logger");
-logger.info({ expressJS: 'Started' })
 const { HTTP_NOT_FOUND } = require("../utils/http.response.code");
 global.H = require("../utils/helper");
-const express = require("express"),
-  fileupload = require("express-fileupload"),
-  fs = require("fs"),
-  cors = require("cors"),
-  morgan = require("morgan"),
-  PlatformService = require("../services/platform.service"),
-  app = express(),
-  path = require("path"),
-  config = require("./config"),
-  database = require("./database"),
-  route = require(path.resolve("routes", config.version)),
-  { createStream } = require("rotating-file-stream"),
-  ApiResponse = require(path.resolve("utils/http.response")),
-  { HTTP_OK, HTTP_INTERNAL_SERVER_ERROR } = require(path.resolve(
-    "utils/http.response.code"
+const express = require("express");
+const fileupload = require("express-fileupload");
+const fs = require("fs");
+const cors = require("cors");
+const morgan = require("morgan");
+const PlatformService = require("../services/platform.service");
+const app = express();
+const path = require("path");
+const config = require("./config");
+const database = require("./database");
+const route = require(path.resolve("routes", config.version));
+const { createStream } = require("rotating-file-stream");
+const ApiResponse = require(path.resolve("../utils/http.response"));
+const { HTTP_OK, HTTP_INTERNAL_SERVER_ERROR } = require(path.resolve(
+    "../utils/http.response.code"
   )),
   {
     WELCOME_MESSAGE,
     INTERNAL_SERVER_ERROR,
     ROUTE_NOT_FOUND,
-  } = require(path.resolve("utils/http.response.message"));
+  } = require(path.resolve("../utils/http.response.message"));
 
-console.log({ expressTifo1: app })
+console.log({ expressTifo1: app });
 
 logger.debug("Overriding 'Express' logger");
 logger.info(`Server running in ${config.env.toUpperCase()} environment`);
@@ -162,5 +161,5 @@ app.use("*", (req, res, next) => {
   });
 });
 
-console.log({ expressTifo22: app })
+console.log({ expressTifo22: app });
 module.exports = app;

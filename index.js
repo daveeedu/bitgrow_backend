@@ -2,20 +2,19 @@
 // jshint esversion:8
 'use strict';
 
-
-console.log({ msg1: "Mine is ready" });
-
 const { Server } = require('socket.io');
 const { createServer } = require('http');
 const fs = require('fs');
 const config = require('./configs/config');
 const path = require('path');
 
-console.log({ msg2: "Mine is ready" });
-
 global.logger = require('./logger');
+console.log({ msg1: "Mine is ready" });
 const app = require('./configs/express');
 
+const logger = global.logger;
+
+console.log({ msg2: "Mine is ready" });
 logger.info('Logger is ready');
 console.log({ msg3: "Mine is ready" });
 

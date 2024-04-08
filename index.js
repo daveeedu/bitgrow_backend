@@ -3,7 +3,7 @@
 'use strict';
 
 
-console.log({ msg: "Mine is ready" });
+console.log({ msg1: "Mine is ready" });
 
 const { Server } = require('socket.io');
 const { createServer } = require('http');
@@ -11,18 +11,22 @@ const fs = require('fs');
 const config = require('./configs/config');
 const path = require('path');
 
+console.log({ msg2: "Mine is ready" });
+
 global.logger = require('./logger');
 const app = require('./configs/express');
 
 logger.info('Logger is ready');
-
+console.log({ msg3: "Mine is ready" });
 
 const options = {
   key: fs.readFileSync(path.resolve(config.server_key)),
   cert: fs.readFileSync(path.resolve(config.server_cert)),
 };
+console.log({ msg4: "Mine is ready" });
 // create express app using http servers
 const server = createServer(options, app);
+console.log({ msg5: "Mine is ready" });
 
 /** Create socket connection */
 
@@ -34,12 +38,14 @@ global.io = new Server(server, {
   // transports: ['polling', 'websocket'],
   // allowEIO3: true,
 });
+console.log({ msg6: "Mine is ready" });
 
 let users = [];
 
 global.io.engine.on('connection_error', (err) => {
   logger.error('socket_connection_error', err);
 });
+console.log({ msg7: "Mine is ready" });
 
 global.io.on('connection', (client) => {
   logger.info('connected', client.id);

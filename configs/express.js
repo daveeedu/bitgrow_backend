@@ -15,12 +15,12 @@ logger.info({ PlatformService })
 const path = require("path");
 const config = require("./config");
 const route = require(path.resolve("routes", config.version));
-logger.info({ route });
+logger.info({ stage: 'routes', route });
 const database = require("./database");
-logger.info({ hello: 'Yes here', database })
+logger.info({ stage: 'db', hello: 'Yes here', database })
 const { createStream } = require("rotating-file-stream");
 const ApiResponse = require("../utils/http.response");
-logger.info({ ApiResponse })
+logger.info({ stage: 'ApiResponse', ApiResponse })
 const {
   HTTP_OK,
   HTTP_INTERNAL_SERVER_ERROR,

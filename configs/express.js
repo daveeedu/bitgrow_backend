@@ -16,7 +16,7 @@ const path = require("path");
 const config = require("./config");
 logger.info({ config });
 const database = require("./database");
-logger.info({ database })
+logger.info({ hello: 'Yes here', database })
 const route = require(path.resolve("routes", config.version));
 logger.info({ route });
 const { createStream } = require("rotating-file-stream");

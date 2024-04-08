@@ -5,12 +5,11 @@
 const { Server } = require('socket.io');
 const { createServer } = require('http');
 const fs = require('fs');
+const app = require('./configs/express');
 const config = require('./configs/config');
 const path = require('path');
 
 global.logger = require('./logger');
-console.log({ msg1: "Mine is ready", global });
-const app = require('./configs/express');
 
 console.log({ msg2s: "Mine is ready", app });
 const logger = global.logger;

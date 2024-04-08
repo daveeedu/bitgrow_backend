@@ -136,3 +136,13 @@
 {"level":"info","message":"This watcher will run every 1 hour","service":"vince-service","timestamp":"2024-04-08T13:56:38.458Z"}
 {"level":"info","message":"Logger is ready","service":"vince-service","timestamp":"2024-04-08T13:56:38.467Z"}
 {"level":"info","message":"Server started on port 4000 🚀","service":"vince-service","timestamp":"2024-04-08T13:56:38.477Z"}
+{"level":"info","message":"Server running in PRODUCTION environment","service":"vince-service","timestamp":"2024-04-08T14:02:13.346Z"}
+{"level":"info","message":"Platform automation watcher is running","service":"vince-service","timestamp":"2024-04-08T14:02:13.782Z"}
+{"level":"info","message":"This watcher will run every 1 hour","service":"vince-service","timestamp":"2024-04-08T14:02:13.795Z"}
+{"level":"info","message":"Logger is ready","service":"vince-service","timestamp":"2024-04-08T14:02:13.884Z"}
+{"level":"info","message":"Server started on port 4000 🚀","service":"vince-service","timestamp":"2024-04-08T14:02:13.984Z"}
+{"level":"info","message":"Server running in PRODUCTION environment","service":"vince-service","timestamp":"2024-04-08T14:06:44.446Z"}
+{"level":"info","message":"Platform automation watcher is running","service":"vince-service","timestamp":"2024-04-08T14:06:45.152Z"}
+{"level":"info","message":"This watcher will run every 1 hour","service":"vince-service","timestamp":"2024-04-08T14:06:45.164Z"}
+{"level":"info","message":"Logger is ready","service":"vince-service","timestamp":"2024-04-08T14:06:45.268Z"}
+{"level":"info","message":"Server started on port 4000 🚀","service":"vince-service","timestamp":"2024-04-08T14:06:45.417Z"}

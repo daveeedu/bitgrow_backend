@@ -7,17 +7,24 @@ const logger = require("../logger");
 global.H = require("../utils/helper");
 const express = require("express");
 const app = express();
+console.log({ expressTifo1: app });
 const fileupload = require("express-fileupload");
+console.log({ fileupload })
 const fs = require("fs");
 const cors = require("cors");
 const morgan = require("morgan");
 const PlatformService = require("../services/platform.service");
+console.log({ PlatformService })
 const path = require("path");
 const config = require("./config");
+console.log({ config })
 const database = require("./database");
+console.log({ database })
 const route = require(path.resolve("routes", config.version));
+console.log({ route });
 const { createStream } = require("rotating-file-stream");
 const ApiResponse = require("../utils/http.response");
+console.log({ ApiResponse })
 const {
   HTTP_OK,
   HTTP_INTERNAL_SERVER_ERROR,
@@ -28,8 +35,6 @@ const {
   INTERNAL_SERVER_ERROR,
   ROUTE_NOT_FOUND,
 } = require("../utils/http.response.message");
-
-console.log({ expressTifo1: app });
 
 logger.debug("Overriding 'Express' logger");
 logger.info(`Server running in ${config.env.toUpperCase()} environment`);

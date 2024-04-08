@@ -5,27 +5,27 @@
 
 const logger = require("../logger");
 global.H = require("../utils/helper");
-console.log({ msgg: 'Reached Helper' })
+logger.info({ msgg: 'Reached Helper' })
 const express = require("express");
 const app = express();
-console.log({ expressTifo1: 'Express object started' });
+logger.info({ expressTifo1: 'Express object started' });
 const fileupload = require("express-fileupload");
-console.log({ fileupload })
+logger.info({ fileupload })
 const fs = require("fs");
 const cors = require("cors");
 const morgan = require("morgan");
 const PlatformService = require("../services/platform.service");
-console.log({ PlatformService })
+logger.info({ PlatformService })
 const path = require("path");
 const config = require("./config");
-console.log({ config })
+logger.info({ config })
 const database = require("./database");
-console.log({ database })
+logger.info({ database })
 const route = require(path.resolve("routes", config.version));
-console.log({ route });
+logger.info({ route });
 const { createStream } = require("rotating-file-stream");
 const ApiResponse = require("../utils/http.response");
-console.log({ ApiResponse })
+logger.info({ ApiResponse })
 const {
   HTTP_OK,
   HTTP_INTERNAL_SERVER_ERROR,

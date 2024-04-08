@@ -5,7 +5,7 @@
 
 const logger = require("../logger");
 const { HTTP_NOT_FOUND } = require("../utils/http.response.code");
-global.H = require('../utils/helper');
+global.H = require("../utils/helper");
 const express = require("express"),
   fileupload = require("express-fileupload"),
   fs = require("fs"),
@@ -22,12 +22,16 @@ const express = require("express"),
   { HTTP_OK, HTTP_INTERNAL_SERVER_ERROR } = require(path.resolve(
     "utils/http.response.code"
   )),
-  { WELCOME_MESSAGE, INTERNAL_SERVER_ERROR, ROUTE_NOT_FOUND } = require(path.resolve(
-    "utils/http.response.message"
-  ));
-  
-  logger.debug("Overriding 'Express' logger");
-  logger.info(`Server running in ${config.env.toUpperCase()} environment`);
+  {
+    WELCOME_MESSAGE,
+    INTERNAL_SERVER_ERROR,
+    ROUTE_NOT_FOUND,
+  } = require(path.resolve("utils/http.response.message"));
+
+console.log({ expressTifo1: app })
+
+logger.debug("Overriding 'Express' logger");
+logger.info(`Server running in ${config.env.toUpperCase()} environment`);
 
 const filename = "access.log";
 const logDirectory = path.join(__dirname, "../logs");
@@ -62,18 +66,22 @@ const configData = {
   debug: true,
   abortOnLimit: true,
   limitHandler: (req, res, next) => {
-    fs.readdirSync(path.join("uploads", "tmp")).forEach((file) => fs.unlinkSync(path.join("uploads", "tmp", file)));
-    
-    const data = {message: `Uploaded file must be ${H.getFileSize({size: config.max_file_upload})} or below.`, code: 413
-    }
+    fs.readdirSync(path.join("uploads", "tmp")).forEach((file) =>
+      fs.unlinkSync(path.join("uploads", "tmp", file))
+    );
+
+    const data = {
+      message: `Uploaded file must be ${H.getFileSize({
+        size: config.max_file_upload,
+      })} or below.`,
+      code: 413,
+    };
     res.status(data.code).json(data);
-  }
-}
-if(config.env.toLowerCase() != 'development') delete configData.debug;
+  },
+};
+if (config.env.toLowerCase() != "development") delete configData.debug;
 // File Upload
-app.use(
-  fileupload(configData)
-);
+app.use(fileupload(configData));
 
 database.connect(config.mongodb_uri);
 
@@ -96,7 +104,6 @@ app.use(
 app.set("port", config.port);
 
 const corsOption = {
-
   origin: (origin, callback) => {
     config.env.toLowerCase() == "development"
       ? logger.info(`Cors Request from: ${origin || config.host}`)
@@ -118,13 +125,13 @@ const corsOption = {
 };
 
 // app.use(cors(corsOption));
-app.use(cors())
+app.use(cors());
 
 const apiVersion = config.version;
 
 app.get(`/${apiVersion}`, (req, res, next) => {
-  logger.info({method: req.method, path: req.originalUrl});
-   const data = ApiResponse.gen(HTTP_OK, WELCOME_MESSAGE, {
+  logger.info({ method: req.method, path: req.originalUrl });
+  const data = ApiResponse.gen(HTTP_OK, WELCOME_MESSAGE, {
     name: "Vince-Service",
     version: "1.0.0",
   });
@@ -136,21 +143,23 @@ PlatformService.mornitorAutomation();
 
 app.use(`/${apiVersion}`, route);
 
-app.use('*', (req, res, next) => {
+app.use("*", (req, res, next) => {
   const data = ApiResponse.gen(HTTP_NOT_FOUND, ROUTE_NOT_FOUND);
   res.status(data.code).json(data);
 
-app.use((err, req, res, next) => {
-  logger.error(err);
-  res.status(HTTP_INTERNAL_SERVER_ERROR)
-    .json(
-      ApiResponse.gen(
-        HTTP_INTERNAL_SERVER_ERROR,
-        INTERNAL_SERVER_ERROR,
-        err.message
-      )
-    );
+  app.use((err, req, res, next) => {
+    logger.error(err);
+    res
+      .status(HTTP_INTERNAL_SERVER_ERROR)
+      .json(
+        ApiResponse.gen(
+          HTTP_INTERNAL_SERVER_ERROR,
+          INTERNAL_SERVER_ERROR,
+          err.message
+        )
+      );
+  });
 });
 
-})
+console.log({ expressTifo22: app })
 module.exports = app;

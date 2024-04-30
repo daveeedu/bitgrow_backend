@@ -12,9 +12,9 @@ global.logger = require("./logger");
 const logger = global.logger;
 const app = require("./configs/express");
 
-console.log({ msg2s: "Mine is ready", app });
+// console.log({ msg2s: "Mine is ready", app });
+// console.log({ msg23: "Mine is ready", logger, global });
 
-console.log({ msg23: "Mine is ready", logger, global });
 logger.info("Logger is ready");
 console.log({ msg3: "Mine is ready" });
 

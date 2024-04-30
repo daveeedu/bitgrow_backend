@@ -11,22 +11,22 @@ logger.info({ expressTifo1: "Express object started" });
 global.H = require("../utils/helper");
 logger.info({ msgg: "Reached Helper" });
 const fileupload = require("express-fileupload");
-logger.info({ fileupload });
+// logger.info({ fileupload });
 const fs = require("fs");
 const cors = require("cors");
 const morgan = require("morgan");
 const PlatformService = require("../services/platform.service");
-logger.info({ PlatformService });
+// logger.info({ PlatformService });
 const path = require("path");
 const config = require("./config");
-logger.info({ config });
+// logger.info({ config });
 const database = require("./database");
-logger.info({ database });
+// logger.info({ database });
 const route = require(path.resolve("routes", config.version));
-logger.info({ route });
+// logger.info({ route });
 const { createStream } = require("rotating-file-stream");
 const ApiResponse = require("../utils/http.response");
-logger.info({ ApiResponse });
+// logger.info({ ApiResponse });
 const {
   HTTP_OK,
   HTTP_INTERNAL_SERVER_ERROR,
@@ -97,7 +97,7 @@ const configData = {
 };
 if (config.env.toLowerCase() != "development") delete configData.debug;
 // File Upload
-app.use(fileupload(configData));
+// app.use(fileupload(configData));
 
 database.connect(config.mongodb_uri);
 
@@ -176,5 +176,5 @@ app.use("*", (req, res, next) => {
   });
 });
 
-console.log({ expressTifo22: app });
+// console.log({ expressTifo22: app });
 module.exports = app;

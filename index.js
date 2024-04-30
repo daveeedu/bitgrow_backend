@@ -2,6 +2,7 @@
 // jshint esversion:8
 "use strict";
 
+const cors = require("cors");
 const { Server } = require("socket.io");
 const { createServer } = require("http");
 const fs = require("fs");
@@ -11,6 +12,14 @@ const path = require("path");
 global.logger = require("./logger");
 const logger = global.logger;
 const app = require("./configs/express");
+
+app.use(
+  cors({
+    origin: ["https://www.bitgrowinvestment.com", "http://localhost:3000"],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  })
+);
 
 // console.log({ msg2s: "Mine is ready", app });
 // console.log({ msg23: "Mine is ready", logger, global });

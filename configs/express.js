@@ -41,14 +41,6 @@ const {
 logger.debug("Overriding 'Express' logger");
 logger.info(`Server running in ${config.env.toUpperCase()} environment`);
 
-app.use(
-  cors({
-    origin: ["https://www.bitgrowinvestment.com", "http://localhost:3000"],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  })
-);
-
 const filename = "access.log";
 const logDirectory = path.join(__dirname, "../logs");
 
